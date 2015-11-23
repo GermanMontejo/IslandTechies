@@ -7,10 +7,35 @@
     <string name="remember_password">Remember password</string>
     <string name="submit">Submit</string>
     <string name="signup">Sign-up for Island Techies</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
 
     <string-array name="contents">
         <item>Learn new things to help in your career advancement.</item>
         <item>Get in touch with the latest talks on IT trends.</item>
         <item>Island Techies - Connecting the tech community with the needs of the world</item>
+    </string-array>
+
+    <string-array name="titles">
+        <item>Content 1</item>
+        <item>Content 2</item>
+        <item>Content 3</item>
+        <item>Content 4</item>
+        <item>Content 5</item>
+    </string-array>
+
+    <string-array name="descriptions">
+        <item>Insert description for content 1</item>
+        <item>Insert description for content 2</item>
+        <item>Insert description for content 3</item>
+        <item>Insert description for content 4</item>
+        <item>Insert description for content 5</item>
+    </string-array>
+
+    <string-array name="drawer_icon_labels">
+        <item>Home</item>
+        <item>Messages</item>
+        <item>Account</item>
+        <item>Calendar</item>
     </string-array>
 </resources>

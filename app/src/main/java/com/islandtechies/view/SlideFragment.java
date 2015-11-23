@@ -11,14 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.islandtechies.R;
-import com.islandtechies.adapter.SlideFragmentAdapter;
+import com.islandtechies.view.adapter.SlideFragmentAdapter;
 
-public class ContentFragment extends Fragment {
+public class SlideFragment extends Fragment {
 
     private static String MY_PREF = "preferences";
 
-    public static ContentFragment newInstance(int position, Context context) {
-        ContentFragment contentFragment = new ContentFragment();
+    public static SlideFragment newInstance(int position, Context context) {
+        SlideFragment contentFragment = new SlideFragment();
         Bundle args = new Bundle();
         SharedPreferences preferences = context.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
         if (preferences.getBoolean("endedSlide", false)) {

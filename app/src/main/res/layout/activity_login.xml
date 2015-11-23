@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/loginBackground"
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:id="@+id/textView4">
+        android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -22,7 +22,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -36,76 +36,76 @@
         android:textColor="@color/colorAccent" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/et_username"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/tv_username"
+        android:layout_alignStart="@+id/tv_username"
+        android:layout_below="@+id/tv_username"
         android:layout_marginTop="10dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/username"
-        android:layout_alignStart="@id/username"
-        android:layout_below="@id/username"
+        android:layout_alignLeft="@id/et_username"
+        android:layout_alignStart="@id/et_username"
+        android:layout_below="@id/et_username"
         android:layout_marginTop="20dp"
         android:text="@string/password"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/colorAccent" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/et_password"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/tv_password"
+        android:layout_alignStart="@+id/tv_password"
+        android:layout_below="@+id/tv_password"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPassword" />
 
     <CheckBox
+        android:id="@+id/cbox_remember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_password"
+        android:layout_alignStart="@+id/et_password"
+        android:layout_below="@+id/et_password"
+        android:checked="false"
         android:text="@string/remember_password"
-        android:id="@+id/remember_password"
-        android:textColor="@color/colorAccent"
-        android:layout_below="@+id/password"
-        android:layout_alignLeft="@+id/password"
-        android:layout_alignStart="@+id/password"
-        android:checked="false" />
+        android:textColor="@color/colorAccent" />
 
     <Button
+        android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/et_password"
+        android:layout_alignRight="@+id/et_password"
+        android:layout_below="@+id/cbox_remember"
         android:text="@string/submit"
-        android:textColor="@color/colorAccent"
-        android:id="@+id/submit"
-        android:layout_below="@+id/remember_password"
-        android:layout_alignRight="@+id/password"
-        android:layout_alignEnd="@+id/password" />
+        android:textColor="@color/colorAccent" />
 
     <TextView
+        android:id="@+id/tv_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignBottom="@+id/btn_submit"
+        android:layout_alignEnd="@+id/cbox_remember"
+        android:layout_alignRight="@+id/cbox_remember"
         android:text="@string/signup"
-        android:id="@+id/textView3"
-        android:textColor="@color/colorAccent"
-        android:layout_alignBottom="@+id/submit"
-        android:layout_alignRight="@+id/remember_password"
-        android:layout_alignEnd="@+id/remember_password" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorAccent" />
 
     <ImageView
+        android:id="@+id/iv_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/turtle"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
-        android:layout_centerHorizontal="true" />
+        android:src="@drawable/turtle" />
 
 
 </RelativeLayout>

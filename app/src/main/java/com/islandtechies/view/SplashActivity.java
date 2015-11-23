@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.islandtechies.R;
-import com.islandtechies.adapter.SlideFragmentAdapter;
+import com.islandtechies.view.adapter.SlideFragmentAdapter;
 import com.islandtechies.view.impl.LoginActivity;
 
 import butterknife.Bind;

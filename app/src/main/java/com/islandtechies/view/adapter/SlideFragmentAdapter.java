@@ -1,4 +1,4 @@
-package com.islandtechies.adapter;
+package com.islandtechies.view.adapter;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v13.app.FragmentPagerAdapter;
 
 import com.islandtechies.R;
-import com.islandtechies.view.ContentFragment;
+import com.islandtechies.view.SlideFragment;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ public class SlideFragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return ContentFragment.newInstance(position, context);
+        return SlideFragment.newInstance(position, context);
     }
 
     @Override
