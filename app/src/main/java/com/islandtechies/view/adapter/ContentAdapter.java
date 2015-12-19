@@ -60,7 +60,6 @@ public class ContentAdapter extends BaseAdapter {
                 .load(news.getImageUrl())
                 .resize(256, 256)
                 .centerCrop()
-                .placeholder()
                 .into(viewHolder.getIcon());
         viewHolder.getTitle().setText(news.getTitle());
         viewHolder.getDescription().setText(news.getContent());
