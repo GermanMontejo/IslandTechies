@@ -39,6 +39,7 @@ public class SlideFragment extends Fragment {
         imageView.setImageDrawable(SlideFragmentAdapter.images.get(position));
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         TextView textView = (TextView) view.findViewById(R.id.fragment_slide_text);
+
         try {
             textView.setText(SlideFragmentAdapter.contents[position]);
         } catch (ArrayIndexOutOfBoundsException ex) {

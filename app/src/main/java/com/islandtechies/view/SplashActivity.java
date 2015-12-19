@@ -12,6 +12,7 @@ import android.view.View;
 import com.islandtechies.R;
 import com.islandtechies.view.adapter.SlideFragmentAdapter;
 import com.islandtechies.view.impl.LoginActivity;
+import com.islandtechies.view.impl.MainActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -22,13 +23,20 @@ public class SplashActivity extends Activity implements ViewPager.OnTouchListene
     ViewPager viewPager;
 
     float xTouch;
-    private String MY_PREF = "preferences";
+    String USER_PREF="users_preferences";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
+
+        SharedPreferences pref = getSharedPreferences(USER_PREF, Context.MODE_PRIVATE);
+        if (pref.getBoolean("isLoginSuccess", false)) {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        }
         viewPager.setAdapter(new SlideFragmentAdapter(getFragmentManager(), getBaseContext()));
         viewPager.setOnTouchListener(this);
     }
@@ -47,10 +55,6 @@ public class SplashActivity extends Activity implements ViewPager.OnTouchListene
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     SplashActivity.this.finish();
-                    SharedPreferences settings = getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = settings.edit();
-                    editor.putBoolean("endedSlide", true);
-                    editor.commit();
                 }
                 break;
         }

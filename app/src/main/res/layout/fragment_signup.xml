@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_below="@id/iv_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:layout_marginTop="20dp" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_alignLeft="@id/et_username"
+        android:layout_alignStart="@id/et_username"
+        android:layout_below="@id/et_username" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/et_email"
+        android:layout_alignLeft="@+id/et_email"
+        android:layout_alignStart="@+id/et_email"
+        android:layout_alignRight="@+id/et_email"
+        android:layout_alignEnd="@+id/et_email" />
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/turtle" />
+
+    <EditText
+        android:id="@+id/et_full_name"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Full name"
+        android:layout_below="@+id/et_password"
+        android:layout_alignLeft="@+id/et_password"
+        android:layout_alignStart="@+id/et_password" />
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:hint="Email"
+        android:layout_below="@+id/et_full_name"
+        android:layout_alignLeft="@+id/et_full_name"
+        android:layout_alignStart="@+id/et_full_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Go back to login page"
+        android:id="@+id/tv_back_to_login"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/btn_submit"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

@@ -1,5 +1,7 @@
 package com.islandtechies.view.impl;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -7,33 +9,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.islandtechies.R;
 import com.islandtechies.presenter.LoginPresenter;
+import com.islandtechies.view.LoginFragment;
+import com.islandtechies.view.SignupFragment;
 import com.islandtechies.view.iface.ILoginView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class LoginActivity extends AppCompatActivity implements ILoginView {
+public class LoginActivity extends AppCompatActivity implements ILoginView, LoginFragment.FragmentCommunicator, SignupFragment.FragmentCommunicator {
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
-    @Bind(R.id.et_username)
-    EditText etUsername;
+    LoginPresenter loginPresenter;
 
-    @Bind(R.id.et_password)
-    EditText etPassword;
-
-    @Bind(R.id.btn_submit)
-    Button btnSubmit;
-
-    LoginPresenter presenter;
+    FragmentManager manager;
+    LoginFragment loginFragment;
+    SignupFragment signupFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +43,16 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         toolbar.setTitle(R.string.app_name);
-        presenter = new LoginPresenter(this);
+        loginPresenter = new LoginPresenter(this, getBaseContext());
+
+        loginFragment = new LoginFragment();
+        signupFragment = new SignupFragment();
+
+        manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.login_fragment_container, loginFragment, "loginFragment").commit();
+        loginFragment.setFragmentCommunicator(this);
+        signupFragment.setFragmentCommunicator(this);
     }
 
     @Override
@@ -67,9 +72,20 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
     }
 
-    @OnClick(R.id.btn_submit)
-    void login() {
-        Toast.makeText(this, "Login", Toast.LENGTH_LONG).show();
-        presenter.login(etUsername.getText().toString(), etPassword.getText().toString());
+    @Override
+    public void login(String username, String password) {
+        loginPresenter.login(username, password);
+    }
+
+    @Override
+    public void showSignupFragment() {
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.login_fragment_container, signupFragment).commit();
+    }
+
+    @Override
+    public void showLoginFragment() {
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.login_fragment_container, loginFragment).commit();
     }
 }

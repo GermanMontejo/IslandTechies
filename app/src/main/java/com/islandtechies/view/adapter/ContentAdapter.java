@@ -56,7 +56,12 @@ public class ContentAdapter extends BaseAdapter {
         }
 
         NewsList news = contentDataList.get(position);
-        Picasso.with(context).load(news.getImageUrl()).resize(256, 256).centerCrop().into(viewHolder.getIcon());
+        Picasso.with(context)
+                .load(news.getImageUrl())
+                .resize(256, 256)
+                .centerCrop()
+                .placeholder()
+                .into(viewHolder.getIcon());
         viewHolder.getTitle().setText(news.getTitle());
         viewHolder.getDescription().setText(news.getContent());
 
