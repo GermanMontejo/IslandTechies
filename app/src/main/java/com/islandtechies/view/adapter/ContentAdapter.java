@@ -1,6 +1,8 @@
 package com.islandtechies.view.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,12 +56,14 @@ public class ContentAdapter extends BaseAdapter {
         } else {
             viewHolder = (ContentViewHolder) row.getTag();
         }
-
+        Drawable placeHolder = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? context.getDrawable(R.drawable.placeholder)
+                : context.getResources().getDrawable(R.drawable.placeholder);
         NewsList news = contentDataList.get(position);
         Picasso.with(context)
                 .load(news.getImageUrl())
                 .resize(256, 256)
                 .centerCrop()
+                .placeholder(placeHolder)
                 .into(viewHolder.getIcon());
         viewHolder.getTitle().setText(news.getTitle());
         viewHolder.getDescription().setText(news.getContent());

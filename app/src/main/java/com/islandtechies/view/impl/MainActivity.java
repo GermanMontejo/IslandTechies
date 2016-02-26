@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     @Bind(R.id.drawer_layout)
     DrawerLayout drawerLayout;
 
+    private ContentPresenter contentPresenter;
+
     private ActionBarDrawerToggle toggle;
     private int[] navIcons = new int[]{R.drawable.cottage, R.drawable.message, R.drawable.user, R.drawable.calendar};
     private String[] navLabels;
@@ -65,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mainFragment = (MainFragment) getFragmentManager().findFragmentById(R.id.fragment_main);
 
+        contentPresenter = new ContentPresenter(this);
+        contentPresenter.loadContent(getBaseContext());
     }
 
     @Override
@@ -82,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             case R.id.action_settings:
                 break;
             case R.id.action_refresh:
-                ContentPresenter contentPresenter = new ContentPresenter(this);
                 contentPresenter.loadContent(getBaseContext());
                 break;
         }
